@@ -2,27 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\CreateUserJob;
 use App\Services\RedisService;
 use Illuminate\Http\Request;
 
 class LabController extends Controller
 {
-    /**
-     * @var RedisService
-     */
-    private $redisService;
+    
 
     public function __construct()
     {
-        $this->redisService = new RedisService();
     }
 
-    public function getMyName(Request $request, $shopId)
+    public function lab(Request $request)
     {
-        
-        $name = $this->redisService->cacheName($shopId);
-        if(!$name){
-            $this->redisService->cacheName($shopId, 'set', $name);
-        }
+        logger(env('QUEUE_CONNECTION'));
+        logger('Run create user job');
+        CreateUserJob::dispatch();
     }
 }

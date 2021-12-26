@@ -35,4 +35,4 @@ Route::get('/lab', function () {
     dd($name);
 });
 
-Route::get('/get-my-name/{shopId}', [LabController::class, 'getMyName']);
+Route::get('lab', [LabController::class, 'lab']);

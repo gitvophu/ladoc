@@ -1,6 +1,6 @@
 FROM php:7.4-fpm
 RUN apt-get update && apt-get install -y libpq-dev libzip-dev
-RUN docker-php-ext-install pdo pdo_pgsql pgsql zip
+RUN docker-php-ext-install pdo pdo_pgsql pgsql zip pcntl
 
 RUN pecl install redis \
     && docker-php-ext-enable redis
