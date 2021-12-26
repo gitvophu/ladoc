@@ -1,0 +1,54 @@
+
+version: '3'
+services:
+  ld-php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    depends_on:
+      - ld-db
+      - ld-redis
+    networks:
+      - ld-network
+
+  ld-nginx:
+    image: nginx:alpine
+    ports:
+      - 5050:80
+    volumes:
+      - ./:/app
+      - ./docker/config/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - ld-php
+      - ld-db
+      - ld-redis
+    networks:
+      - ld-network
+
+  ld-db:
+    image: postgres:alpine
+    volumes:
+      - ld-data:/var/lib/postgresql/data
+    ports:
+      - "5555:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123456
+    networks:
+      - ld-network
+  
+  ld-redis:
+    image: redis:alpine
+    ports:
+      - 6380:6379
+    networks:
+      - ld-network
+volumes:
+  ld-data:
+networks:
+  ld-network:
+
+# Note
+#ld : ladoc
