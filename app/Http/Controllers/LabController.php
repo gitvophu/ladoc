@@ -19,5 +19,6 @@ class LabController extends Controller
         logger(env('QUEUE_CONNECTION'));
         logger('Run create user job');
         CreateUserJob::dispatch();
+        dump('CreateUserJob');
     }
 }

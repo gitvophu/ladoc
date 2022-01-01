@@ -12,7 +12,6 @@ services:
       - ld-redis
     networks:
       - ld-network
-
   ld-nginx:
     image: nginx:alpine
     ports:
