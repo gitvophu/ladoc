@@ -20,5 +20,6 @@ class LabController extends Controller
         logger('Run create user job');
         CreateUserJob::dispatch();
         dump('CreateUserJob');
+        dump('CreateUserJob');
     }
 }
