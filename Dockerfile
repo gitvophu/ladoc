@@ -11,4 +11,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /app
 
-CMD /app/docker/config/php/scripts/script.sh
+# CMD /app/docker/config/php/scripts/script.sh
