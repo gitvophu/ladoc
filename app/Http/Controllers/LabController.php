@@ -21,5 +21,6 @@ class LabController extends Controller
         CreateUserJob::dispatch();
         dump('CreateUserJob');
         dump('CreateUserJob');
+        dump('CreateUserJob');
     }
 }
