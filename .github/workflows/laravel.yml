@@ -11,6 +11,8 @@ jobs:
 
     runs-on: self-hosted
     steps:
+    - name: Default user
+      run: whoami
     - uses: actions/checkout@v2
     - name: Copy .env
       run: cp .env.production .env
