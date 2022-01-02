@@ -34,5 +34,6 @@ class CreateUserJob implements ShouldQueue
         sleep(5);
         logger('User 1 created');
         logger('User 1 created');
+        logger('User 1 created');
     }
 }
