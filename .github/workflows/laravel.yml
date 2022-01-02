@@ -16,7 +16,7 @@ jobs:
       env:
         runner: self-hosted
       with:
-        php-version: '8.0'
+        php-version: '7.4'
     - uses: actions/checkout@v2
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.production', '.env');"
