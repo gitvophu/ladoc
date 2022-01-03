@@ -22,3 +22,10 @@ jobs:
       with: 
         dev: no
         args: --profile --ignore-platform-reqs
+
+    - name: Build & deploy containers
+      run: |
+        docker-compose stop 
+        docker-compose build
+        docker-compose start
+
