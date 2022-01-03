@@ -9,6 +9,10 @@ RUN pecl install redis \
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+RUN chmod -R 777 storage/logs \
+    && chmod -R 777 storage/framework \
+    && chmod -R 775 bootstrap/cache
+
 WORKDIR /app
 
 # CMD /app/docker/config/php/scripts/script.sh
