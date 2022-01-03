@@ -23,11 +23,11 @@ jobs:
 
     - name: Change permission
       run: |
-        chmod -R 777 storage/
-        chmod -R 777 bootstrap/
+        chmod -R 777 ./storage/
+        chmod -R 777 ./bootstrap/
 
       - name: Build & deploy containers
-      run: |
-        docker-compose stop 
-        docker-compose build
-        docker-compose start
+        run: |
+          docker-compose stop 
+          docker-compose build
+          docker-compose start
