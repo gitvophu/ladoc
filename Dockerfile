@@ -9,9 +9,9 @@ RUN pecl install redis \
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN chmod -R 777 storage/logs \
-    && chmod -R 777 storage/framework \
-    && chmod -R 775 bootstrap/cache
+RUN chmod -R 777 /app/storage/logs \
+    && chmod -R 777 /app/storage/framework \
+    && chmod -R 775 /app/bootstrap/cache
 
 WORKDIR /app
 
