@@ -26,8 +26,8 @@ jobs:
         chmod -R 777 ./storage/
         chmod -R 777 ./bootstrap/
 
-      - name: Build & deploy containers
-        run: |
-          docker-compose stop 
-          docker-compose build
-          docker-compose start
+    - name: Build & deploy containers
+      run: |
+        docker-compose stop 
+        docker-compose build
+        docker-compose start
