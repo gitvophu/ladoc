@@ -16,11 +16,6 @@ class LabController extends Controller
 
     public function lab(Request $request)
     {
-        logger(env('QUEUE_CONNECTION'));
-        logger('Run create user job');
-        CreateUserJob::dispatch();
-        dump('CreateUserJob');
-        dump('CreateUserJob');
-        dump('CreateUserJob');
+        dump('Hello github actions');
     }
 }
