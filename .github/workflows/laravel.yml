@@ -19,9 +19,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        docker run --rm --volume $PWD:/app composer install --ignore-platform-reqs
-        chown -R $USER:$USER ./
-
+        docker run --rm --volume $PWD:/app --user $USER composer install --ignore-platform-reqs
 
     - name: Build & deploy containers
       run: |
