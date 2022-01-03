@@ -17,4 +17,4 @@ jobs:
     - name: Copy .env
       run: cp .env.production .env
     - name: Install Dependencies
-      run: docker-compose exec ld-php composer install
+      run: docker-compose exec -it ld-php composer install
