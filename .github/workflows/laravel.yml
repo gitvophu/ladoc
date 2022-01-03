@@ -18,11 +18,10 @@ jobs:
       run: cp .env.production .env
     
     - name: Install dependencies
-      uses: php-actions/composer@v6
-      with: 
-        php_version: 7.4
-        dev: no
-        args: --profile --ignore-platform-reqs
+      run: |
+        docker run --rm --volume $PWD:/app composer install --ignore-platform-reqs
+        chown -R $USER:$USER ./
+
 
     - name: Build & deploy containers
       run: |
