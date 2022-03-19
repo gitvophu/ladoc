@@ -17,22 +17,5 @@ use Illuminate\Support\Facades\Cache;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/create-user', function () {
-    $user = new App\Models\User();
-    $user->password = Hash::make('123123');
-    $user->email = 'phuvn@fireapps.vn';
-    $user->name = 'Phu Vo';
-    $user->save();
-    dd('ok');
-});
-Route::get('/lab', function () {
-    $key = 'name';
-    Cache::set($key, 'phuvn');
-    $name = Cache::get($key);
-    dd($name);
-});
-
-Route::get('lab', [LabController::class, 'lab']);
+Route::get('/', [LabController::class, 'welcome']);
+Route::get('/lab', [LabController::class, 'lab']);

@@ -13,7 +13,8 @@
         "laravel/horizon": "5.7.17",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "sentry/sentry-laravel": "^2.11"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
