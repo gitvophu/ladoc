@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Services\Reporter\ReporterService;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -36,9 +37,10 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             if (app()->bound('sentry')) {
-                
                 app('sentry')->captureException($e);
             }
+
+            ReporterService::instance()->captureException($e);
         });
     }
 }

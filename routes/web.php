@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Cache;
 
 Route::get('/', [LabController::class, 'welcome']);
 Route::get('/lab', [LabController::class, 'lab']);
+Route::get('/test-sentry', [LabController::class, 'testSentry']);
